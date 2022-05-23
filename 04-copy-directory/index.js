@@ -2,7 +2,7 @@
 const fs = require('fs'), { readdir, mkdir, rm } = require('fs/promises'),  path = require('path'), Folder = path.join(__dirname, 'files'), newFolder = path.join(__dirname, 'files-copy');
 
 
-const copyDirection = async (folder, newFolder) => {
+const copyDir = async (folder, newFolder) => {
   await rm(newFolder, { recursive: true, force: true });
   fs.access(newFolder, err => {
     if(err){
@@ -18,4 +18,4 @@ const copyDirection = async (folder, newFolder) => {
   }))
 };
 
-copyDirection(Folder, newFolder);
+copyDir(Folder, newFolder);
